@@ -1,0 +1,264 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Bebop",
+	"scopeName": "source.bop",
+	"fileTypes": [
+		"bop"
+	],
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#attributeSection"
+		},
+		{
+			"include": "#message"
+		},
+		{
+			"include": "#struct"
+		},
+		{
+			"include": "#enum"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.block.bebop",
+					"begin": "/\\*",
+					"end": "\\*/"
+				},
+				{
+					"name": "comment.line.double-slash.bebop",
+					"begin": "//",
+					"end": "$\\n?"
+				}
+			]
+		},
+		"attributeSection": {
+			"begin": "(\\[)(opcode|deprecated)?(\\:)?",
+			"beginCaptures": {
+				"1": {
+					"name": "punctuation.squarebracket.open.bebop"
+				},
+				"2": {
+					"name": "keyword.other.attribute-specifier.bebop"
+				},
+				"3": {
+					"name": "punctuation.separator.colon.bebop"
+				}
+			},
+			"end": "(\\])",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.squarebracket.close.bebop"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#comments"
+				},
+				{
+					"include": "#attribute"
+				}
+			]
+		},
+		"attribute": {
+			"patterns": [
+				{
+					"include": "#attributeArguments"
+				}
+			]
+		},
+		"attributeArguments": {
+			"begin": "(\\()",
+			"beginCaptures": {
+				"1": {
+					"name": "punctuation.paren.open.bebop"
+				}
+			},
+			"end": "(\\))",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.paren.close.bebop"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#number"
+				},
+				{
+					"include": "#string"
+				}
+			]
+		},
+		"message": {
+			"begin": "(message)\\s+([A-Za-z][A-Za-z0-9_.]*)\\s*(\\{)?",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.bebop"
+				},
+				"2": {
+					"name": "entity.name.class.message.bebop"
+				}
+			},
+			"end": "\\}",
+			"patterns": [
+				{
+					"include": "$self"
+				},
+				{
+					"include": "#enum"
+				},
+				{
+					"include": "#comments"
+				},
+				{
+					"include": "#field"
+				},
+				{
+					"include": "#mapfield"
+				}
+			]
+		},
+		"struct": {
+			"begin": "(readonly)?\\s*(struct)\\s+([A-Za-z][A-Za-z0-9_.]*)\\s*(\\{)?",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.bebop"
+				},
+				"2": {
+					"name": "keyword.other.bebop"
+				},
+				"3": {
+					"name": "entity.name.class.struct.bebop"
+				}
+			},
+			"end": "\\}",
+			"patterns": [
+				{
+					"include": "$self"
+				},
+				{
+					"include": "#enum"
+				},
+				{
+					"include": "#comments"
+				},
+				{
+					"include": "#field"
+				},
+				{
+					"include": "#mapfield"
+				}
+			]
+		},
+		"field": {
+			"begin": "\\b([\\w.]+)((\\[)(\\]))?\\s+(\\w+)(?:\\s*=\\s*(\\d+))?(0[xX][0-9a-fA-F]+|[0-9]+)?",
+			"beginCaptures": {
+				"1": {
+					"name": "storage.type.bebop"
+				},
+				"3": {
+					"name": "punctuation.squarebracket.open.bebop"
+				},
+				"4": {
+					"name": "punctuation.squarebracket.close.bebop"
+				},
+				"5": {
+					"name": "variable.other.bebop"
+				},
+				"6": {
+					"name": "constant.numeric.bebop"
+				}
+			},
+			"end": ";",
+			"patterns": [
+				
+			]
+		},
+		"mapfield": {
+			"begin": "\\s*(map)\\s*(\\[)\\s*([\\w.]+)\\s*(,)\\s*([\\w.]+)\\s*(\\])\\s+(\\w+)(?:\\s*=\\s*(\\d+))?",
+			"beginCaptures": {
+				"1": {
+					"name": "storage.type.bebop"
+				},
+				"2": {
+					"name": "punctuation.squarebracket.open.bebop"
+				},
+				"3": {
+					"name": "storage.type.bebop"
+				},
+				"4": {
+					"name": "punctuation.comma.bebop"
+				},
+				"5": {
+					"name": "storage.type.bebop"
+				},
+				"6": {
+					"name": "punctuation.squarebracket.close.bebop"
+				},
+				"7": {
+					"name": "variable.other.bebop"
+				},
+				"8": {
+					"name": "constant.numeric.bebop"
+				}
+			},
+			"end": ";",
+			"patterns": [
+	
+			]
+		},
+		"enum": {
+			"begin": "(enum)(\\s+)([A-Za-z][A-Za-z0-9_]*)(\\s*)(\\{)?",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.bebop"
+				},
+				"3": {
+					"name": "entity.name.class.bebop"
+				}
+			},
+			"end": "\\}",
+			"patterns": [
+				{
+					"include": "#comments"
+				},
+				{
+					"begin": "([A-Za-z][A-Za-z0-9_]*)\\s*=\\s*(0[xX][0-9a-fA-F]+|[0-9]+)",
+					"beginCaptures": {
+						"1": {
+							"name": "variable.other.bebop"
+						},
+						"2": {
+							"name": "constant.numeric.bebop"
+						}
+					},
+					"end": ";",
+					"patterns": [
+					
+					]
+				}
+			]
+		},
+		"ident": {
+			"match": "[A-Za-z][A-Za-z0-9_]*",
+			"name": "entity.name.class.bebop"
+		},
+		"storagetypes": {
+			"match": "\\b(bool|byte|uint16|int16|uint32|int32|uint64|int64|float32|float64|string|guid|date)\\b",
+			"name": "storage.type.bebop"
+		},
+		"string": {
+			"match": "('([^']|\\')*')|(\"([^\"]|\\\")*\")",
+			"name": "string.quoted.double.bebop"
+		},
+		"number": {
+			"name": "constant.numeric.bebop",
+			"match": "\\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)\\b"
+		}
+	}
+}

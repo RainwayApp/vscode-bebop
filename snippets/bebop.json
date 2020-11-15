@@ -1,0 +1,14 @@
+{
+    ".source.go": {
+        "message": {
+            "prefix": "msg",
+            "description": "message",
+            "body": "message ${1:MessageName} {\n}"
+        },
+        "bool field": {
+            "prefix": "fbo",
+            "description": "bool field",
+            "body": "bool ${1:field_name} = ${2:tag};"
+        }
+    }
+}

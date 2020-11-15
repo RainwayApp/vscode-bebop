@@ -1,0 +1,31 @@
+{
+    "name": "bebop",
+    "displayName": "bebop",
+    "description": "An efficient schema based binary serialization format for building cross-platform, real-time applications.",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.51.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "bebop",
+            "aliases": ["Bebop", "bebop"],
+            "extensions": [".bop"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "bebop",
+            "scopeName": "source.bop",
+            "path": "./syntaxes/bebop.tmLanguage.json"
+        }],
+        "snippets": [
+            {
+                "language": "bebop",
+                "path": "./snippets/bebop.json"
+            }
+        ]
+    }
+}

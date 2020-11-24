@@ -2,12 +2,12 @@
     ".source.go": {
         "attribute deprecated": {
             "prefix": "adep",
-            "description": "atribute deprecated",
+            "description": "attribute deprecated",
             "body": "[deprecated(\"${1:Reason}\")]"
         },
         "attribute opcode": {
             "prefix": "aop",
-            "description": "atribute opcode",
+            "description": "attribute opcode",
             "body": "[opcode(${1:Code})]"
         },
         "message": {

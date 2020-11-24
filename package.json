@@ -2,12 +2,15 @@
     "name": "bebop",
     "displayName": "bebop",
     "description": "An efficient schema based binary serialization format for building cross-platform, real-time applications.",
-    "version": "0.0.1",
+    "version": "0.2.0",
+    "publisher": "rainway",
+    "license": "Apache-2.0",
     "engines": {
         "vscode": "^1.51.0"
     },
     "categories": [
-        "Programming Languages"
+        "Programming Languages",
+        "Snippets"
     ],
     "contributes": {
         "languages": [{

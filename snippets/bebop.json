@@ -1,14 +1,164 @@
 {
     ".source.go": {
+        "attribute deprecated": {
+            "prefix": "adep",
+            "description": "atribute deprecated",
+            "body": "[deprecated(\"${1:Reason}\")]"
+        },
+        "attribute opcode": {
+            "prefix": "aop",
+            "description": "atribute opcode",
+            "body": "[opcode(${1:Code})]"
+        },
         "message": {
             "prefix": "msg",
             "description": "message",
             "body": "message ${1:MessageName} {\n}"
         },
-        "bool field": {
-            "prefix": "fbo",
+        "bool message field": {
+            "prefix": "mbo",
             "description": "bool field",
-            "body": "bool ${1:field_name} = ${2:tag};"
+            "body": "bool ${1:fieldName} = ${2:index};"
+        },
+        "byte message field": {
+            "prefix": "mby",
+            "description": "byte message field",
+            "body": "byte ${1:fieldName} = ${2:index};"
+        },
+        "uint16 message field": {
+            "prefix": "mu16",
+            "description": "uint16 message field",
+            "body": "uint16 ${1:fieldName} = ${2:index};"
+        },
+        "uint32 message field": {
+            "prefix": "mu32",
+            "description": "uint32 message field",
+            "body": "uint32 ${1:fieldName} = ${2:index};"
+        },
+        "uint64 message field": {
+            "prefix": "mu64",
+            "description": "uint64 message field",
+            "body": "uint64 ${1:fieldName} = ${2:index};"
+        },
+        "int16 message field": {
+            "prefix": "mi16",
+            "description": "int16 message field",
+            "body": "int16 ${1:fieldName} = ${2:index};"
+        },
+        "int32 message field": {
+            "prefix": "mi32",
+            "description": "int32 message field",
+            "body": "int32 ${1:fieldName} = ${2:index};"
+        },
+        "int64 message field": {
+            "prefix": "mi64",
+            "description": "int64 message field",
+            "body": "int64 ${1:fieldName} = ${2:index};"
+        },
+        "float32 message field": {
+            "prefix": "mf32",
+            "description": "float32 message field",
+            "body": "float32 ${1:fieldName} = ${2:index};"
+        },
+        "float64 message field": {
+            "prefix": "mf64",
+            "description": "float64 message field",
+            "body": "float64 ${1:fieldName} = ${2:index};"
+        },
+        "string message field": {
+            "prefix": "ms",
+            "description": "string message field",
+            "body": "string ${1:fieldName} = ${2:index};"
+        },
+        "guid message field": {
+            "prefix": "mg",
+            "description": "guid message field",
+            "body": "guid ${1:fieldName} = ${2:index};"
+        },
+        "map message field": {
+            "prefix": "mm",
+            "description": "map message field",
+            "body": "map[${1:key}, ${2:val}] ${3:fieldName} = ${4:index};"
+        },
+        "struct": {
+            "prefix": "str",
+            "description": "struct",
+            "body": "struct ${1:StructName} {\n}"
+        },
+        "readonly struct": {
+            "prefix": "rstr",
+            "description": "readonly struct",
+            "body": "readonly struct ${1:StructName} {\n}"
+        },
+        "bool struct field": {
+            "prefix": "sbo",
+            "description": "bool struct field",
+            "body": "bool ${1:fieldName};"
+        },
+        "byte struct field": {
+            "prefix": "sby",
+            "description": "byte struct field",
+            "body": "byte ${1:fieldName};"
+        },
+        "uint16 struct field": {
+            "prefix": "su16",
+            "description": "uint16 struct field",
+            "body": "uint16 ${1:fieldName};"
+        },
+        "uint32 struct field": {
+            "prefix": "su32",
+            "description": "uint32 struct field",
+            "body": "uint32 ${1:fieldName};"
+        },
+        "uint64 struct field": {
+            "prefix": "su64",
+            "description": "uint64 struct field",
+            "body": "uint64 ${1:fieldName};"
+        },
+        "int16 struct field": {
+            "prefix": "si16",
+            "description": "int16 struct field",
+            "body": "int16 ${1:fieldName};"
+        },
+        "int32 struct field": {
+            "prefix": "si32",
+            "description": "int32 struct field",
+            "body": "int32 ${1:fieldName};"
+        },
+        "int64 struct field": {
+            "prefix": "si64",
+            "description": "int64 struct field",
+            "body": "int64 ${1:fieldName};"
+        },
+        "float32 struct field": {
+            "prefix": "sf32",
+            "description": "float32 struct field",
+            "body": "float32 ${1:fieldName};"
+        },
+        "float64 struct field": {
+            "prefix": "sf64",
+            "description": "float64 struct field",
+            "body": "float64 ${1:fieldName};"
+        },
+        "string struct field": {
+            "prefix": "ss",
+            "description": "string struct field",
+            "body": "string ${1:fieldName};"
+        },
+        "guid struct field": {
+            "prefix": "sg",
+            "description": "guid struct field",
+            "body": "guid ${1:fieldName};"
+        },
+        "map struct field": {
+            "prefix": "sm",
+            "description": "map struct field",
+            "body": "map[${1:key}, ${2:val}] ${3:fieldName};"
+        },
+        "enum": {
+            "prefix": "en",
+            "description": "enum",
+            "body": "enum ${3:EnumName} {\n}"
         }
     }
 }

@@ -41,7 +41,7 @@
 			"begin": "(\\[)(opcode|deprecated)?(\\:)?",
 			"beginCaptures": {
 				"1": {
-					"name": "punctuation.squarebracket.open.bop"
+					"name": "punctuation.annotation.start.bop"
 				},
 				"2": {
 					"name": "keyword.other.attribute-specifier.bop"
@@ -53,7 +53,7 @@
 			"end": "(\\])",
 			"endCaptures": {
 				"1": {
-					"name": "punctuation.squarebracket.close.bop"
+					"name": "punctuation.annotation.end.bop"
 				}
 			},
 			"patterns": [
@@ -95,36 +95,40 @@
 			]
 		},
 		"message": {
-			"begin": "(message)\\s+([A-Za-z][A-Za-z0-9_.]*)\\s*(\\{)?",
+			"name": "meta.message.bop",
+			"begin": "(message)\\s+([A-Za-z][A-Za-z0-9_.]*)\\s*(\\{)",
 			"beginCaptures": {
 				"1": {
 					"name": "keyword.other.bop"
 				},
 				"2": {
 					"name": "entity.name.class.message.bop"
+				},
+				"3": {
+					"name": "punctuation.start.block.bop"
 				}
 			},
-			"end": "\\}",
+			"end": "(\\})",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.block.end.bop"
+				}
+			},
 			"patterns": [
 				{
 					"include": "$self"
-				},
-				{
-					"include": "#enum"
 				},
 				{
 					"include": "#comments"
 				},
 				{
 					"include": "#field"
-				},
-				{
-					"include": "#mapfield"
 				}
 			]
 		},
 		"struct": {
-			"begin": "(readonly)?\\s*(struct)\\s+([A-Za-z][A-Za-z0-9_.]*)\\s*(\\{)?",
+			"name": "meta.struct.bop",
+			"begin": "(?:(readonly)\\s+)?(struct)\\s+([A-Za-z][A-Za-z0-9_]*)\\s*(\\{)",
 			"beginCaptures": {
 				"1": {
 					"name": "keyword.other.bop"
@@ -134,131 +138,129 @@
 				},
 				"3": {
 					"name": "entity.name.class.struct.bop"
+				},
+				"4": {
+					"name": "punctuation.start.block.bop"
 				}
 			},
-			"end": "\\}",
+			"end": "(\\})",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.block.end.bop"
+				}
+			},
 			"patterns": [
 				{
 					"include": "$self"
-				},
-				{
-					"include": "#enum"
 				},
 				{
 					"include": "#comments"
 				},
 				{
 					"include": "#field"
-				},
-				{
-					"include": "#mapfield"
 				}
 			]
 		},
 		"field": {
-			"begin": "\\b([\\w.]+)((\\[)(\\]))?\\s+(\\w+)(?:\\s*=\\s*(\\d+))?(0[xX][0-9a-fA-F]+|[0-9]+)?",
-			"beginCaptures": {
+			"name": "meta.field.bop",
+			"begin": "(?=\\w)",
+			"end": "(\\w+)\\s*(;)",
+			"endCaptures": {
 				"1": {
-					"name": "storage.type.bop"
-				},
-				"3": {
-					"name": "punctuation.squarebracket.open.bop"
-				},
-				"4": {
-					"name": "punctuation.squarebracket.close.bop"
-				},
-				"5": {
 					"name": "variable.other.bop"
-				},
-				"6": {
-					"name": "constant.numeric.bop"
-				}
-			},
-			"end": ";",
-			"patterns": [
-				
-			]
-		},
-		"mapfield": {
-			"begin": "\\s*(map)\\s*(\\[)\\s*([\\w.]+)\\s*(,)\\s*([\\w.]+)\\s*(\\])\\s+(\\w+)(?:\\s*=\\s*(\\d+))?",
-			"beginCaptures": {
-				"1": {
-					"name": "storage.type.bop"
 				},
 				"2": {
-					"name": "punctuation.squarebracket.open.bop"
-				},
-				"3": {
-					"name": "storage.type.bop"
-				},
-				"4": {
-					"name": "punctuation.comma.bop"
-				},
-				"5": {
-					"name": "storage.type.bop"
-				},
-				"6": {
-					"name": "punctuation.squarebracket.close.bop"
-				},
-				"7": {
-					"name": "variable.other.bop"
-				},
-				"8": {
-					"name": "constant.numeric.bop"
+					"name": "punctuation.terminator.bop"
 				}
 			},
-			"end": ";",
 			"patterns": [
-	
+				{
+					"include": "#builtin_type"
+				},
+				{
+					"include": "#ident"
+				},
+				{
+					"include": "#arrow"
+				},
+				{
+					"include": "#number"
+				},
+				{
+					"include": "#type_punctuation"
+				}
 			]
 		},
 		"enum": {
-			"begin": "(enum)(\\s+)([A-Za-z][A-Za-z0-9_]*)(\\s*)(\\{)?",
+			"name": "meta.enum.bop",
+			"begin": "(enum)\\s+([A-Za-z][A-Za-z0-9_]*)\\s*(\\{)",
 			"beginCaptures": {
 				"1": {
 					"name": "keyword.other.bop"
 				},
-				"3": {
+				"2": {
 					"name": "entity.name.class.bop"
+				},
+				"3": {
+					"name": "punctuation.block.start.bop"
 				}
 			},
-			"end": "\\}",
+			"end": "(\\})",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.block.end.bop"
+				}
+			},
 			"patterns": [
 				{
 					"include": "#comments"
 				},
 				{
-					"begin": "([A-Za-z][A-Za-z0-9_]*)\\s*=\\s*(0[xX][0-9a-fA-F]+|[0-9]+)",
+					"begin": "([A-Za-z][A-Za-z0-9_]*)\\s*(=)\\s*(0[xX][0-9a-fA-F]+|[0-9]+)",
 					"beginCaptures": {
 						"1": {
 							"name": "variable.other.bop"
 						},
 						"2": {
+							"name": "punctuation.equals.bop"
+						},
+						"3": {
 							"name": "constant.numeric.bop"
 						}
 					},
-					"end": ";",
-					"patterns": [
-					
-					]
+					"end": "(;)",
+					"endCaptures": {
+						"1": {
+							"name": "punctuation.terminator.bop"
+						}
+					},		
+					"patterns": []
 				}
 			]
 		},
 		"ident": {
-			"match": "[A-Za-z][A-Za-z0-9_]*",
+			"match": "\\b[A-Za-z][A-Za-z0-9_]*\\b",
 			"name": "entity.name.class.bop"
 		},
-		"storagetypes": {
-			"match": "\\b(bool|byte|uint16|int16|uint32|int32|uint64|int64|float32|float64|string|guid|date)\\b",
+		"builtin_type": {
+			"match": "\\b(bool|byte|uint8|uint16|int16|uint32|int32|uint64|int64|float32|float64|string|guid|date|array|map)\\b",
 			"name": "storage.type.bop"
 		},
 		"string": {
-			"match": "('([^']|\\')*')|(\"([^\"]|\\\")*\")",
+			"match": "\"([^\"]|\\\")*\"",
 			"name": "string.quoted.double.bop"
 		},
 		"number": {
 			"name": "constant.numeric.bop",
-			"match": "\\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)\\b"
+			"match": "\\b(0[xX][0-9a-fA-F]+|[0-9]+)\\b"
+		},
+		"arrow": {
+			"name": "punctuation.arrow.bop",
+			"match": "->"
+		},
+		"type_punctuation": {
+			"name": "punctuation.type.bop",
+			"match": "\\[|\\]|,"
 		}
 	}
 }

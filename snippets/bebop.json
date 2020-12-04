@@ -18,67 +18,67 @@
         "bool message field": {
             "prefix": "mbo",
             "description": "bool field",
-            "body": "bool ${1:fieldName} = ${2:index};"
+            "body": "${1:index} -> bool ${2:fieldName};"
         },
         "byte message field": {
             "prefix": "mby",
             "description": "byte message field",
-            "body": "byte ${1:fieldName} = ${2:index};"
+            "body": "${1:index} -> byte ${2:fieldName};"
         },
         "uint16 message field": {
             "prefix": "mu16",
             "description": "uint16 message field",
-            "body": "uint16 ${1:fieldName} = ${2:index};"
+            "body": "${1:index} -> uint16 ${2:fieldName};"
         },
         "uint32 message field": {
             "prefix": "mu32",
             "description": "uint32 message field",
-            "body": "uint32 ${1:fieldName} = ${2:index};"
+            "body": "${1:index} -> uint32 ${2:fieldName};"
         },
         "uint64 message field": {
             "prefix": "mu64",
             "description": "uint64 message field",
-            "body": "uint64 ${1:fieldName} = ${2:index};"
+            "body": "${1:index} -> uint64 ${2:fieldName};"
         },
         "int16 message field": {
             "prefix": "mi16",
             "description": "int16 message field",
-            "body": "int16 ${1:fieldName} = ${2:index};"
+            "body": "${1:index} -> int16 ${2:fieldName};"
         },
         "int32 message field": {
             "prefix": "mi32",
             "description": "int32 message field",
-            "body": "int32 ${1:fieldName} = ${2:index};"
+            "body": "${1:index} -> int32 ${2:fieldName};"
         },
         "int64 message field": {
             "prefix": "mi64",
             "description": "int64 message field",
-            "body": "int64 ${1:fieldName} = ${2:index};"
+            "body": "${1:index} -> int64 ${2:fieldName};"
         },
         "float32 message field": {
             "prefix": "mf32",
             "description": "float32 message field",
-            "body": "float32 ${1:fieldName} = ${2:index};"
+            "body": "${1:index} -> float32 ${2:fieldName};"
         },
         "float64 message field": {
             "prefix": "mf64",
             "description": "float64 message field",
-            "body": "float64 ${1:fieldName} = ${2:index};"
+            "body": "${1:index} -> float64 ${2:fieldName};"
         },
         "string message field": {
             "prefix": "ms",
             "description": "string message field",
-            "body": "string ${1:fieldName} = ${2:index};"
+            "body": "${1:index} -> string ${2:fieldName};"
         },
         "guid message field": {
             "prefix": "mg",
             "description": "guid message field",
-            "body": "guid ${1:fieldName} = ${2:index};"
+            "body": "${1:index} -> guid ${2:fieldName};"
         },
         "map message field": {
             "prefix": "mm",
             "description": "map message field",
-            "body": "map[${1:key}, ${2:val}] ${3:fieldName} = ${4:index};"
+            "body": "${1:index} -> map[${2:key}, ${3:val}] ${4:fieldName};"
         },
         "struct": {
             "prefix": "str",

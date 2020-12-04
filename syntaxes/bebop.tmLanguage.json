@@ -102,7 +102,7 @@
 					"name": "keyword.other.bop"
 				},
 				"2": {
-					"name": "entity.name.class.message.bop"
+					"name": "entity.name.type.message.bop"
 				},
 				"3": {
 					"name": "punctuation.start.block.bop"
@@ -137,7 +137,7 @@
 					"name": "keyword.other.bop"
 				},
 				"3": {
-					"name": "entity.name.class.struct.bop"
+					"name": "entity.name.type.struct.bop"
 				},
 				"4": {
 					"name": "punctuation.start.block.bop"
@@ -199,7 +199,7 @@
 					"name": "keyword.other.bop"
 				},
 				"2": {
-					"name": "entity.name.class.bop"
+					"name": "entity.name.type.bop"
 				},
 				"3": {
 					"name": "punctuation.block.start.bop"
@@ -240,7 +240,7 @@
 		},
 		"ident": {
 			"match": "\\b[A-Za-z][A-Za-z0-9_]*\\b",
-			"name": "entity.name.class.bop"
+			"name": "entity.name.type.bop"
 		},
 		"builtin_type": {
 			"match": "\\b(bool|byte|uint8|uint16|int16|uint32|int32|uint64|int64|float32|float64|string|guid|date|array|map)\\b",

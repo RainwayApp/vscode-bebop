@@ -8,27 +8,68 @@
     "engines": {
         "vscode": "^1.51.0"
     },
+    "main": "./out/extension.js",
     "categories": [
         "Programming Languages",
         "Snippets"
     ],
+    "activationEvents": [
+        "onLanguage:bebop",
+        "onCommand:bebop.helloWorld"
+	],
     "contributes": {
-        "languages": [{
-            "id": "bebop",
-            "aliases": ["Bebop", "bebop"],
-            "extensions": [".bop"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "bebop",
-            "scopeName": "source.bop",
-            "path": "./syntaxes/bebop.tmLanguage.json"
-        }],
+        "languages": [
+            {
+                "id": "bebop",
+                "aliases": [
+                    "Bebop",
+                    "bebop"
+                ],
+                "extensions": [
+                    ".bop"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "bebop",
+                "scopeName": "source.bop",
+                "path": "./syntaxes/bebop.tmLanguage.json"
+            }
+        ],
         "snippets": [
             {
                 "language": "bebop",
                 "path": "./snippets/bebop.json"
             }
-        ]
-    }
+        ],
+        "commands": [
+			{
+				"command": "bebop.helloWorld",
+				"title": "Hello World"
+			}
+		]
+    },
+    "scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile && yarn run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+    "devDependencies": {
+		"@types/vscode": "^1.51.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.4",
+		"@types/node": "^12.11.7",
+		"eslint": "^7.15.0",
+		"@typescript-eslint/eslint-plugin": "^4.9.0",
+		"@typescript-eslint/parser": "^4.9.0",
+		"glob": "^7.1.6",
+		"mocha": "^8.1.3",
+		"typescript": "^4.1.2",
+		"vscode-test": "^1.4.1"
+	}
 }

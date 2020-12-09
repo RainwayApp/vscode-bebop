@@ -29,14 +29,14 @@ async function onChange(event: vscode.TextDocumentChangeEvent) {
 			diagnosticCollection.clear()
 			const checkOutput = await checkSchema(event.document.getText())
 			const issues = checkOutput.issues
+			const diagnostics = []
 			if (issues?.length) {
-				let diagnostics = []
 				for (const issue of issues) {
 					let range = new vscode.Range(issue.startLine, issue.startColumn, issue.endLine, issue.endColumn)
 					diagnostics.push(new vscode.Diagnostic(range, issue.description, vscode.DiagnosticSeverity.Error))
 				}
-				diagnosticMap.set(uri, diagnostics)
 			}
+			diagnosticMap.set(uri, diagnostics)
 			for (const [uri, diagnostics] of diagnosticMap) {
 				diagnosticCollection.set(uri, diagnostics)
 			}

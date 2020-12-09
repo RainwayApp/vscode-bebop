@@ -14,8 +14,7 @@
         "Snippets"
     ],
     "activationEvents": [
-        "onLanguage:bebop",
-        "onCommand:bebop.helloWorld"
+        "onLanguage:bebop"
 	],
     "contributes": {
         "languages": [

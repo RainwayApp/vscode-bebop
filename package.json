@@ -5,6 +5,7 @@
     "version": "2.0.0",
     "publisher": "rainway",
     "license": "Apache-2.0",
+    "repository": "https://github.com/RainwayApp/vscode-bebop",
     "engines": {
         "vscode": "^1.51.0"
     },

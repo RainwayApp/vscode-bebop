@@ -2,10 +2,10 @@
     "name": "bebop",
     "displayName": "bebop",
     "description": "Bebop language support for Visual Studio Code.",
-    "version": "2.0.0",
+    "version": "2.0.2",
     "publisher": "rainway",
     "license": "Apache-2.0",
-    "repository": "https://github.com/RainwayApp/vscode-bebop",
+    "repository": "https://github.com/RainwayApp/vscode-bebop.git",
     "engines": {
         "vscode": "^1.51.0"
     },
@@ -14,6 +14,7 @@
         "Programming Languages",
         "Snippets"
     ],
+    "icon": "icon.png",
     "activationEvents": [
         "onLanguage:bebop"
 	],

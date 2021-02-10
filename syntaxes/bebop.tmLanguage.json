@@ -16,6 +16,9 @@
 			"include": "#message"
 		},
 		{
+			"include": "#union"
+		},
+		{
 			"include": "#struct"
 		},
 		{
@@ -159,6 +162,67 @@
 				{
 					"include": "#field"
 				}
+			]
+		},
+		"union": {
+			"name": "meta.union.bop",
+			"begin": "(union)\\s+([A-Za-z][A-Za-z0-9_.]*)\\s*(\\{)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.bop"
+				},
+				"2": {
+					"name": "entity.name.type.union.bop"
+				},
+				"3": {
+					"name": "punctuation.start.block.bop"
+				}
+			},
+			"patterns": [
+				{
+					"include": "$self"
+				},
+				{
+					"include": "#comments"
+				},
+				{
+					"include": "#union_field"
+				}
+			],
+			"end": "\\}",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.block.end.bop"
+				}
+			}
+		},
+		"union_field": {
+			"name": "meta.field.bop",
+			"begin": "(?=\\w)",
+			"end": "(\\w+)\\s*(};?)",
+			"patterns": [
+				{
+					"include": "#struct"
+				},
+				{
+					"include": "#message"
+				},
+				{
+					"include": "#builtin_type"
+				},
+				{
+					"include": "#ident"
+				},
+				{
+					"include": "#arrow"
+				},
+				{
+					"include": "#number"
+				},
+				{
+					"include": "#type_punctuation"
+				}
+		
 			]
 		},
 		"field": {

@@ -269,10 +269,10 @@ balanced-match@^1.0.0:
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
   integrity sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
 
-bebop-tools@2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/bebop-tools/-/bebop-tools-2.0.3.tgz#a61478391e762a7c4e1e7247f2e0eed8adb3a5b8"
-  integrity sha512-NgzBNbhsLXRK1kyNyfRV6OoBh8ogl65UNWQLzMF+is7BkTNQgni4YUOAe5iM01jAnRa0eyJer29JEBapqpxh3w==
+bebop-tools@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/bebop-tools/-/bebop-tools-2.1.0.tgz#7081443f83b0af973ceb7f0562035bf5c3bcdd2d"
+  integrity sha512-eKn0hcy0GMQNtpERD2tGFsThauhuaUU/S8PHV21c5f679pPqhfNo/m2iV6ezQS+l4drCksXzzjhJirfH0bxPfw==
   dependencies:
     "@types/node" "^14.14.10"
 

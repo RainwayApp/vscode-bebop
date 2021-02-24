@@ -187,6 +187,10 @@
 				},
 				{
 					"include": "#union"
+				},
+				{
+					"match": ";",
+					"name": "punctuation.terminator.bop"
 				}
 			],
 			"end": "(\\})",

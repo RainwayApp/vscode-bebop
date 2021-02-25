@@ -119,9 +119,6 @@
 			},
 			"patterns": [
 				{
-					"include": "$self"
-				},
-				{
 					"include": "#comments"
 				},
 				{
@@ -154,9 +151,6 @@
 			},
 			"patterns": [
 				{
-					"include": "$self"
-				},
-				{
 					"include": "#comments"
 				},
 				{
@@ -180,27 +174,11 @@
 			},
 			"patterns": [
 				{
-					"include": "$self"
-				},
-				{
 					"include": "#comments"
 				},
 				{
-					"include": "#union_field"
-				}
-			],
-			"end": "\\}",
-			"endCaptures": {
-				"1": {
-					"name": "punctuation.block.end.bop"
-				}
-			}
-		},
-		"union_field": {
-			"name": "meta.field.bop",
-			"begin": "(?=\\w)",
-			"end": "(\\w+)\\s*(};?)",
-			"patterns": [
+					"include": "#union_discriminator"
+				},
 				{
 					"include": "#struct"
 				},
@@ -208,22 +186,34 @@
 					"include": "#message"
 				},
 				{
-					"include": "#builtin_type"
+					"include": "#union"
 				},
 				{
-					"include": "#ident"
-				},
-				{
-					"include": "#arrow"
-				},
-				{
-					"include": "#number"
-				},
-				{
-					"include": "#type_punctuation"
+					"match": ";",
+					"name": "punctuation.terminator.bop"
 				}
-		
-			]
+			],
+			"end": "(\\})",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.block.end.bop"
+				}
+			}
+		},
+		"union_discriminator": {
+			"name": "meta.union_discriminator.bop",
+			"begin": "(\\d+)",
+			"beginCaptures": {
+				"1":{
+					"name": "constant.numeric.bop"
+				}
+			},
+			"end": "(->)",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.arrow.bop"
+				}
+			}
 		},
 		"field": {
 			"name": "meta.field.bop",

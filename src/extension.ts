@@ -48,8 +48,13 @@ export async function activate(context: vscode.ExtensionContext) {
 	const onChangeDisposable = vscode.workspace.onDidChangeTextDocument((event) => {
 		updateDiagnostics(event.document)
 	})
+	vscode.workspace.onDidSaveTextDocument((event) => {
+
+	})
 	context.subscriptions.push(onChangeDisposable, onChangeEditorDisposable)
 }
+
+
 
 /** To be run on file change. Runs compiler in check mode and loads diagnostics. */
 async function updateDiagnostics(document: vscode.TextDocument) {

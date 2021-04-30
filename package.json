@@ -46,7 +46,22 @@
             }
         ],
         "commands": [
-		]
+        ],
+        "configuration": {
+            "title": "Bebop",
+            "properties": {
+                "bebop.compileOnSave": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Compile bebop schemas on save."
+                },
+                "bebop.configFile": {
+                    "type": ["string", null],
+                    "default": null,
+                    "description": "Path to Bebop project configuration file. Leave unset to locate automatically."
+                }
+            }
+        }
     },
     "scripts": {
 		"vscode:prepublish": "yarn run compile",

@@ -2,7 +2,7 @@
     "name": "bebop",
     "displayName": "bebop",
     "description": "Bebop language support for Visual Studio Code.",
-    "version": "2.1.1",
+    "version": "2.3.0",
     "publisher": "rainway",
     "license": "Apache-2.0",
     "repository": "https://github.com/RainwayApp/vscode-bebop.git",
@@ -57,7 +57,7 @@
 		"test": "node ./out/test/runTest.js"
     },
     "dependencies": {
-        "bebop-tools": "2.1.0"
+        "bebop-tools": "2.3.0"
     },
     "devDependencies": {
 		"@types/vscode": "^1.51.0",

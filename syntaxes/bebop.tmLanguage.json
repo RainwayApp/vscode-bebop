@@ -317,7 +317,8 @@
 					"include": "#builtin_type"
 				},
 				{
-					"match": "="
+					"match": "=",
+					"name": "keyword.operator.bop"
 				},
 				{
 					"include": "#datetime"
